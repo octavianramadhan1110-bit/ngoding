@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donat Zaki — Nikmati Kenikmatan Setiap Gigitan</title>
+  <meta name="description" content="Promosi Donat Zaki — donat segar, rasa beragam, promo istimewa setiap hari!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#131212;
+      --accent:#141212; /* coral */
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --shadow: 0 6px 18px rgba(10,10,10,0.08);
+      --radius:14px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg, #d8ecf9 0%, #fff 100%);color:#222}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:54px;height:54px;border-radius:12px;background:conic-gradient(from 180deg at 50% 50%, #ffd3d3, #ffb3b3, #ffd3d3);display:flex;align-items:center;justify-content:center;font-weight:700;color:#a70000;box-shadow: var(--shadow)}
+    .brand h1{font-size:20px;margin:0}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin-top:18px}
+    .hero-card{background:var(--card);padding:28px;border-radius:18px;box-shadow:var(--shadow)}
+    .kicker{display:inline-block;background:#fff0f0;color:var(--accent);padding:6px 12px;border-radius:999px;font-weight:600;margin-bottom:12px}
+    .hero h2{margin:0 0 12px 0;font-size:32px;line-height:1.05}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;border:2px solid #ffdede;color:var(--accent)}
+
+    /* Cards */
+    .features{display:flex;gap:14px;margin-top:18px}
+    .feature{flex:1;background:linear-gradient(180deg,#fff 0%, #fffaf9 100%);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:center}
+    .feature img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+
+    /* Menu gallery */
+    .menu{margin-top:30px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .donut{background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow);text-align:center}
+    .donut img{width:100%;height:170px;object-fit:cover;border-radius:10px}
+    .donut h3{margin:10px 0 6px 0}
+    .price{font-weight:700;color:var(--accent)}
+
+    /* Promo banner */
+    .promo{margin-top:24px;background:linear-gradient(90deg, #fff0f0, #fff7f7);padding:20px;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Footer */
+    footer{margin-top:36px;padding:18px 0;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+      nav ul{display:none}
+      header{padding:12px 0}
+    }
+
+    /* Modal cart */
+    .modal{position:fixed;right:18px;bottom:18px;background:var(--card);width:320px;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;transform:translateY(120px);transition:transform .25s ease;z-index:40}
+    .modal.open{transform:translateY(0)}
+    .modal .head{padding:12px 16px;border-bottom:1px solid #f2f2f2;font-weight:700}
+    .modal .items{max-height:220px;overflow:auto;padding:10px 16px}
+    .modal .checkout{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-top:1px solid #f2f2f2}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">DZ</div>
+        <div>
+          <h1>Donat Zaki</h1>
+          <div style="font-size:12px;color:var(--muted)">Donat segar — dibuat setiap hari</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#promo">Promo</a></li>
+          <li><a href="#lokasi">Lokasi</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="kicker">PROMO HARI INI</span>
+        <h2>Buy 3 Get 1 Free — Cicipi Varian Spesial Musim Ini!</h2>
+        <p>Nikmati donat empuk dengan topping unik: cokelat premium, karamel laut, matcha, dan banyak lagi. Pesan sekarang, siap diambil dalam 15 menit.</p>
+        <div class="cta-row">
+          <button class="btn" id="orderNow">Pesan Sekarang</button>
+          <button class="btn secondary" id="viewMenu">Lihat Menu</button>
+        </div>
+
+        <div class="features" style="margin-top:18px">
+          <div class="feature">
+            <img src="https://images.unsplash.com/photo-1548365328-9b1b3d1b2b8e?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="fresh"/>
+            <div>
+              <div style="font-weight:700">Segar & Harum</div>
+              <div style="font-size:13px;color:var(--muted)">Dibuat setiap pagi</div>
+            </div>
+          </div>
+          <div class="feature">
+            <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="handmade"/>
+            <div>
+              <div style="font-weight:700">Resep Rumahan</div>
+              <div style="font-size:13px;color:var(--muted)">Tanpa pengawet</div>
+            </div>
+          </div>
+          <div class="feature">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="delivery"/>
+            <div>
+              <div style="font-weight:700">Siap Antar</div>
+              <div style="font-size:13px;color:var(--muted)">Area sekitar toko</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="hero-card" style="text-align:center">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="donut" style="width:100%;height:260px;object-fit:cover;border-radius:10px;margin-bottom:12px"/>
+          <div style="font-size:14px;color:var(--muted)">Pilih paket hemat</div>
+          <h3 style="margin:8px 0">Paket Family — 12 Donat</h3>
+          <div style="font-weight:700;color:var(--accent);font-size:20px">Rp 30.000 <span style="font-weight:400;color:var(--muted);font-size:13px">(hemat Rp 30.000)</span></div>
+          <button class="btn" style="margin-top:12px;width:100%" id="addFamily">Tambah ke Keranjang</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="menu" id="menu">
+      <h2>Menu Favorit</h2>
+      <div class="grid" style="margin-top:12px">
+        <div class="donut">
+          <img src="https://images.unsplash.com/photo-1601924578877-1d0a5c8b6b6f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="choco"/>
+          <h3>Donat Cokelat Premium</h3>
+          <div class="price">Rp 3.500</div>
+          <button class="btn" style="margin-top:10px" onclick="addToCart('Donat Cokelat Premium',12000)">Tambah</button>
+        </div>
+        <div class="donut">
+          <img src="https://images.unsplash.com/photo-1589308078052-5d7e9b0d0b9a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="matcha"/>
+          <h3>Donat Matcha</h3>
+          <div class="price">Rp 3.500</div>
+          <button class="btn" style="margin-top:10px" onclick="addToCart('Donat Matcha',13000)">Tambah</button>
+        </div>
+        <div class="donut">
+          <img src="https://images.unsplash.com/photo-1606312610929-9a6f0f5a6f4b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="caramel"/>
+          <h3>Donat Karamel Laut</h3>
+          <div class="price">Rp 14.000</div>
+          <button class="btn" style="margin-top:10px" onclick="addToCart('Donat Karamel Laut',14000)">Tambah</button>
+        </div>
+        <div class="donut">
+          <img src="https://images.unsplash.com/photo-1613742619363-3f6d9d2b7f8a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="straw"/>
+          <h3>Donat Stroberi</h3>
+          <div class="price">Rp 12.000</div>
+          <button class="btn" style="margin-top:10px" onclick="addToCart('Donat Stroberi',12000)">Tambah</button>
+        </div>
+        <div class="donut">
+          <img src="https://images.unsplash.com/photo-1630195563499-1a8b3a5d2f7f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="vanilla"/>
+          <h3>Donat Vanila</h3>
+          <div class="price">Rp 11.000</div>
+          <button class="btn" style="margin-top:10px" onclick="addToCart('Donat Vanila',11000)">Tambah</button>
+        </div>
+        <div class="donut">
+          <img src="https://images.unsplash.com/photo-1562440499-64e6a93b6a2e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="sugar"/>
+          <h3>Donat Gula Kayu Manis</h3>
+          <div class="price">Rp 10.000</div>
+          <button class="btn" style="margin-top:10px" onclick="addToCart('Donat Gula Kayu Manis',10000)">Tambah</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="promo" style="margin-top:18px">
+      <div class="promo">
+        <div>
+          <div style="font-weight:700">Flash Sale — 15% OFF untuk pembelian lewat website</div>
+          <div style="font-size:13px;color:var(--muted)">Gunakan kode: DONAT15 saat checkout</div>
+        </div>
+        <div>
+          <button class="btn" id="applyCode">Gunakan Kode</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="lokasi" style="margin-top:22px">
+      <h2>Lokasi Kami</h2>
+      <div style="display:flex;gap:18px;align-items:center;margin-top:12px">
+        <div style="flex:1;background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow)">
+          <p style="margin:6px 0 4px 0"><strong>Donat Zaki</strong></p>
+          <p style="margin:6px 0;color:var(--muted)">Jalan Kue No. 12, Jakarta Selatan</p>
+          <p style="margin:6px 0;color:var(--muted)">Jam: 07.00 — 20.00 (Setiap hari)</p>
+        </div>
+        <div style="width:340px;background:linear-gradient(180deg,#fff,#fffaf9);padding:12px;border-radius:12px;box-shadow:var(--shadow);text-align:center">
+          <div style="font-weight:700">Hubungi</div>
+          <div style="color:var(--muted)">+62 812-3456-7890</div>
+          <button class="btn" style="margin-top:8px" onclick="openContact()">Kirim Pesan</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© Donat Zaki 2025</div>
+      <div style="color:var(--muted)">Dukung usaha lokal — #SupportSmallBiz</div>
+    </footer>
+
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cart" class="modal" aria-hidden="true">
+    <div class="head">Keranjang</div>
+    <div class="items" id="cartItems">
+      <div style="color:var(--muted);font-size:14px">Belum ada item.</div>
+    </div>
+    <div class="checkout">
+      <div style="font-weight:700">Total: <span id="totalText">Rp 0</span></div>
+      <button class="btn" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    // Simple cart logic
+    const cart = [];
+    const cartEl = document.getElementById('cart');
+    const cartItemsEl = document.getElementById('cartItems');
+    const totalText = document.getElementById('totalText');
+
+    function rupiah(amount){
+      return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function renderCart(){
+      if(cart.length===0){
+        cartItemsEl.innerHTML = '<div style="color:var(--muted);font-size:14px">Belum ada item.</div>';
+      } else {
+        cartItemsEl.innerHTML = '';
+        cart.forEach((it, idx)=>{
+          const row = document.createElement('div');
+          row.style.display='flex';row.style.justifyContent='space-between';row.style.marginBottom='8px';
+          row.innerHTML = `<div><strong>${it.name}</strong><div style="font-size:13px;color:var(--muted)">Qty: ${it.qty}</div></div><div style="text-align:right">${rupiah(it.price*it.qty)}<div style='margin-top:6px'><button onclick='removeItem(${idx})' style='background:transparent;border:0;color:#ff6b6b;cursor:pointer'>Hapus</button></div></div>`;
+          cartItemsEl.appendChild(row);
+        });
+      }
+      const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+      totalText.textContent = rupiah(total);
+    }
+
+    function addToCart(name, price){
+      const found = cart.find(i=>i.name===name);
+      if(found){found.qty+=1;} else {cart.push({name,price,qty:1});}
+      cartEl.classList.add('open');
+      renderCart();
+    }
+
+    function removeItem(idx){
+      cart.splice(idx,1);
+      renderCart();
+      if(cart.length===0) cartEl.classList.remove('open');
+    }
+
+    function checkout(){
+      if(cart.length===0){alert('Keranjang kosong!');return}
+      const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+      const code = prompt('Masukkan kode promo (kosong kalau tidak ada):');
+      let final = total;
+      if(code && code.toUpperCase()==='DONAT15'){
+        final = Math.round(total * 0.85);
+        alert('Kode diterima — 15% OFF!');
+      }
+      alert('Terima kasih! Total bayar: '+rupiah(final)+". Silakan datang ke toko atau pilih antar pada aplikasi kami.");
+      cart.length=0;renderCart();cartEl.classList.remove('open');
+    }
+
+    // Button handlers
+    document.getElementById('orderNow').addEventListener('click', ()=>{document.getElementById('cart').classList.add('open')});
+    document.getElementById('viewMenu').addEventListener('click', ()=>{location.hash='#menu'});
+    document.getElementById('addFamily').addEventListener('click', ()=>{addToCart('Paket Family - 12 Donat',120000)});
+    document.getElementById('applyCode').addEventListener('click', ()=>{document.getElementById('cart').classList.add('open');alert('Gunakan kode DONAT15 saat checkout untuk 15% OFF');});
+
+    function openContact(){
+      const msg = prompt('Ketik pesan untuk Donat Delights:');
+      if(msg) alert('Pesan terkirim: "'+msg+'" — Kami akan menghubungi Anda segera (simulasi).');
+    }
+
+    // Close modal if click outside (simple)
+    window.addEventListener('click', (e)=>{
+      const cartRect = cartEl.getBoundingClientRect();
+      if(!cartEl.contains(e.target) && cartEl.classList.contains('open')){
+        const within = (e.clientX>cartRect.left && e.clientX<cartRect.right && e.clientY>cartRect.top && e.clientY<cartRect.bottom);
+        if(!within) cartEl.classList.remove('open');
+      }
+    });
+
+  </script>
+</body>
+</html>
